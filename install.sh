@@ -1,16 +1,18 @@
 #!/bin/bash
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+brew update
+
+brew install --ignore-already-installed aws-cli ansible jq spaceship tfenv tgenv thefuck tree direnv
+brew tap homebrew/cask-fonts
+brew install --cask --ignore-already-installed discord docker firefox-developer-edition font-fira-code iterm2 slack spotify steam vlc
 
 cp -f ./.zshrc ~/.zshrc
 
 source ~/.zshrc
-
-brew install --ignore-already-installed spaceship thefuck direnv
-
-brew tap homebrew/cask-fonts
-
-brew install --cask --ignore-already-installed font-fira-code iterm2
 
 PATH=$ZSH_CUSTOM
 
