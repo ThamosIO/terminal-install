@@ -8,20 +8,21 @@ brew update
 
 brew install --ignore-already-installed aws-cli ansible jq spaceship tfenv tgenv thefuck tree direnv
 brew tap homebrew/cask-fonts
-brew install --cask --ignore-already-installed discord docker firefox-developer-edition font-fira-code iterm2 slack spotify steam vlc
+brew install --cask --ignore-already-installed discord docker firefox-developer-edition font-fira-code iterm2 microsoft-teams slack spotify steam vlc visual-studio-code
 
 cp -f ./.zshrc ~/.zshrc
 
 source ~/.zshrc
 
-PATH=$ZSH_CUSTOM
-
-[ -z "$ZSH_CUSTOM" ] && exit 1
+[ -z "$ZSH_CUSTOM" ] && printf "ZSH_CUSTOM is unset, cannot continue"; exit 1
 
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
-cp -f ./.zshrc ~/.zshrc
-
 mkdir -p $ZSH_CUSTOM/colors/
-git clone git@github.com:herrbischoff/iterm2-gruvbox.git $ZSH_CUSTOM/colors/gruvbox
+
+# Manual steps
+
+git clone git@github.com:herrbischoff/iterm2-gruvbox.git ./gruvbox
+
+wget https://download.tuxfamily.org/dvorak/macosx/fr-dvorak-bepo-macosx-1.1rc2.dmg -o ./bépo.dmg

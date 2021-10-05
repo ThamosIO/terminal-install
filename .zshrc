@@ -24,4 +24,3 @@ git_version="${${(As: :)$(git version 2>/dev/null)}[3]}"
 autoload -U compinit; compinit
 autoload -U promptinit; promptinit
 prompt spaceship
-
