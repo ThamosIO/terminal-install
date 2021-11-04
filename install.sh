@@ -2,7 +2,7 @@
 
 brew update
 
-brew install aws-cli ansible jq spaceship imagemagick nmap rust tfenv tgenv thefuck tree direnv kubectl minikube hyperkit helm
+brew install awscli ansible jq spaceship imagemagick nmap rust tfenv tgenv thefuck tree direnv kubectl minikube hyperkit helm
 brew tap homebrew/cask-fonts
 brew install --cask discord docker firefox-developer-edition font-fira-code iterm2 microsoft-teams slack spotify steam vlc visual-studio-code
 
