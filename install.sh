@@ -1,14 +1,10 @@
 #!/bin/bash
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 brew update
 
-brew install --ignore-already-installed aws-cli ansible jq spaceship imagemagick nmap rust tfenv tgenv thefuck tree direnv kubectl minikube hyperkit helm
+brew install aws-cli ansible jq spaceship imagemagick nmap rust tfenv tgenv thefuck tree direnv kubectl minikube hyperkit helm
 brew tap homebrew/cask-fonts
-brew install --cask --ignore-already-installed discord docker firefox-developer-edition font-fira-code iterm2 microsoft-teams slack spotify steam vlc visual-studio-code
+brew install --cask discord docker firefox-developer-edition font-fira-code iterm2 microsoft-teams slack spotify steam vlc visual-studio-code
 
 cp -f ./.zshrc ~/.zshrc
 
