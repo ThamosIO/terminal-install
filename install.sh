@@ -6,7 +6,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 brew update
 
-brew install --ignore-already-installed aws-cli ansible jq spaceship tfenv tgenv thefuck tree direnv
+brew install --ignore-already-installed aws-cli ansible jq spaceship imagemagick nmap rust tfenv tgenv thefuck tree direnv kubectl minikube hyperkit helm
 brew tap homebrew/cask-fonts
 brew install --cask --ignore-already-installed discord docker firefox-developer-edition font-fira-code iterm2 microsoft-teams slack spotify steam vlc visual-studio-code
 
