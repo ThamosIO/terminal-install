@@ -1,10 +1,61 @@
-#!/bin/bash
+#!/bin/zsh
 
 brew update
 
-brew install awscli ansible jq spaceship imagemagick nmap rust tfenv tgenv thefuck tree direnv kubectl minikube hyperkit helm
 brew tap homebrew/cask-fonts
-brew install --cask discord docker firefox-developer-edition font-fira-code iterm2 microsoft-teams slack spotify steam vlc visual-studio-code
+brew tap homebrew/dupes
+
+brew install coreutils
+brew install gnu-sed gnu-tar gnu-indent gnu-which gnu-grep --with-default-names
+
+pkgs=(
+  awscli
+  ansible
+  bash
+  jq
+  spaceship
+  imagemagick
+  nmap
+  rust
+  tfenv
+  tgenv
+  thefuck
+  tree
+  direnv
+  kubectl
+  minikube
+  hyperkit
+  helm
+)
+
+brew install ${pkgs[@]}
+
+brew tap homebrew/cask-versions
+
+casks=(
+  discord
+  docker
+  firefoxdeveloperedition
+  font-fira-code
+  iterm2
+  microsoft-teams
+  slack
+  spotify
+  steam
+  vlc
+  visual-studio-code
+)
+
+brew install --cask ${casks[@]}
+
+brew cleanup
+
+# Folders
+
+[[ ! -d $HOME/Projects ]] && mkdir $HOME/Projects
+[[ ! -d $HOME/Workspace ]] && mkdir $HOME/Workspace
+
+# zshrc
 
 cp -f ./.zshrc ~/.zshrc
 
@@ -12,10 +63,21 @@ source ~/.zshrc
 
 [ -z "$ZSH_CUSTOM" ] && printf "ZSH_CUSTOM is unset, cannot continue"; exit 1
 
+# Spaceship prompt install
+
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 mkdir -p $ZSH_CUSTOM/colors/
+
+# Custom scripts
+
+mkdir -p $HOME/.scripts
+
+mv samples/.scripts/ $HOME/.scripts
+mv samples/.envrc.sample $HOME/.envrc
+
+cd $HOME; direnv allow
 
 # Manual steps
 
